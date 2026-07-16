@@ -1,0 +1,72 @@
+baseURL = "https://teachercat.github.io/"
+languageCode = "zh-cn"
+title = "猫咪老师的技术博客"
+theme = ["PaperMod"]
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[pagination]
+pagerSize = 10
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[params]
+env = "production"
+title = "猫咪老师的技术博客"
+description = "记录ROS 2、Gazebo、Linux、Docker和机器人开发"
+author = "猫咪老师"
+
+defaultTheme = "auto"
+disableThemeToggle = false
+
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowToc = true
+TocOpen = false
+
+[params.homeInfoParams]
+Title = "欢迎来到我的技术博客"
+Content = "记录ROS 2、Gazebo、Linux、Docker以及机器人开发中的学习和实践。"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/HappyDrink-okk"
+
+[caches]
+  [caches.images]
+  dir = ":cacheDir/images"
+
+[[menu.main]]
+identifier = "posts"
+name = "文章"
+url = "/posts/"
+weight = 10
+
+[[menu.main]]
+identifier = "archives"
+name = "归档"
+url = "/archives/"
+weight = 20
+
+[[menu.main]]
+identifier = "tags"
+name = "标签"
+url = "/tags/"
+weight = 30
+
+[[menu.main]]
+identifier = "search"
+name = "搜索"
+url = "/search/"
+weight = 40
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
