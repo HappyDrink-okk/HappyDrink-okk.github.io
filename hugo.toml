@@ -20,6 +20,8 @@ env = "production"
 title = "猫咪老师的技术博客"
 description = "记录ROS 2、Gazebo、Linux、Docker和机器人开发"
 author = "猫咪老师"
+# 开启评论
+comments = true
 
 defaultTheme = "auto"
 disableThemeToggle = false
