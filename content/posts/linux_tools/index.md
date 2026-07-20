@@ -37,5 +37,5 @@ sudo apt update && sudo apt install meld
 ![[images/Pasted image 20260720102240.png]]
 2. 将其解压，解压命令：`./Snipaste-2.11.3-x86_64.AppImage --appimage-extract`，解压后会在当前目录出现一个`squashfs-root/`目录，可以进到这个目录执行`./Apprun`来测试一下安装包是否可用，如功能都正常的话进入下一步
 3. 将`F1`按键绑定到上一步的`Apprun`，可以用`pwd ./Apprun`来获取它的绝对路径，然后进行绑定
-![](images/Pasted image 20260720103111.png)
+![](images/Pastedimage20260720103111.png)
 
