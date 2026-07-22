@@ -28,7 +28,7 @@ sudo apt install ./obsidian_1.12.7_amd64.deb
 ```bash
 sudo apt update && sudo apt install meld
 ```
-![]images/(Pastedimage20260720100800.png)
+![](images/Pastedimage20260720100800.png)
 
 ## 截图工具：Snipaste
 一款小巧的截图软件，分为免费版和收费版，两个版本的[差异链接](https://docs.snipaste.com/zh-cn/pro)，基本上免费版已经够用，也是支持多个平台，[官网链接](https://zh.snipaste.com/index.html)
