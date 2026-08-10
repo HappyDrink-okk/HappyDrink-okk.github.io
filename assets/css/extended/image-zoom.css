@@ -1,0 +1,10 @@
+/* 鼠标移动到可放大的图片上时显示放大光标 */
+.post-content .zoomable-image {
+  cursor: zoom-in;
+}
+
+/* 确保放大图片位于导航栏、目录等元素上方 */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 9999;
+}

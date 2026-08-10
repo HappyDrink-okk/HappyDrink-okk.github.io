@@ -1,0 +1,38 @@
+<script src="{{ "js/medium-zoom.min.js" | relURL }}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof mediumZoom !== "function") {
+    console.warn("medium-zoom 加载失败");
+    return;
+  }
+
+  /*
+   * 只处理文章正文中的图片：
+   * 1. 已经被链接包裹的图片不处理
+   * 2. 带有 no-zoom 类的图片不处理
+   */
+  const images = Array.from(
+    document.querySelectorAll(".post-content img")
+  ).filter(function (image) {
+    return (
+      !image.closest("a") &&
+      !image.classList.contains("no-zoom")
+    );
+  });
+
+  if (images.length === 0) {
+    return;
+  }
+
+  images.forEach(function (image) {
+    image.classList.add("zoomable-image");
+  });
+
+  mediumZoom(images, {
+    margin: 24,
+    background: "rgba(0, 0, 0, 0.88)",
+    scrollOffset: 40
+  });
+});
+</script>
