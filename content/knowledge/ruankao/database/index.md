@@ -414,10 +414,94 @@ client.delete('foo')
 `memcached`一般是12306、双11等场景使用，一般企业不使用。
 
 #### 文档数据库
-文档数据库以文档为存储信息的基本单位，一般用类似JSON的格式存储
+文档数据库以文档为存储信息的基本单位，一般用类似JSON的格式存储，存储的内容都是文档型的。<br>
+以`key-value`形式存取。<br>
+MongoDB具有4个主要特征：
+- 高性能：提供JSON、XML等可嵌入数据快速处理能力；提供文档的索引功能，相对传统数据库而言，大大提高查询速度。
+- 丰富的查询语言：为数据聚合、结构文档、地理空间提供丰富的查询功能。
+- 高可用性：提供数据冗余处理和故障自动转移的功能。
+- 水平扩展能力：通过集群将数据分布到多台机器。
+使用示例：
+```python
+import pymongo
+
+# 创建连接对象
+client = pymongo.MongoClient('mongodb://localhost:27017/')
+# 连接数据库
+database = database['example']
+# 选择集合
+collection = database['users']
+# 插入数据
+user_value = '测试文本...'
+collection.insert_ont(user_value)
+# 查询数据
+result = collection.find_one('')
+```
+
+#### 列数据库
+常用于工控领域。擅长以列为单位存储数据。
+```python
+import happybase
+#连接到HBase服务器
+connection = happybase.Connectionlocalhost'， port=9o90)
+#打开一个表
+table = connection.table('your_table name
+#获取单行数据
+row data = table.row(row key', columns=[' column family:column']
+print("Single Row Data:"，row_data)
+#扫描表中的数据
+print("ScanningTable:"）
+for key, data in table. scan(columns=[' column family:column') :
+	print(f"Rowkey:(key),Data:(data)")
+```
+
+#### 图数据库
+网状数据
 
 ## 其他
 
+### 数据库备份技术
+按备份的实现方式，分为：
+- 物理备份（冷备份、热备份）
+- 逻辑备份
+按备份数据量情况：
+- 完全备份：将整个数据库备份
+- 增量备份：上一次备份（完全、增量、差异）后发生变化的数据
+- 差异备份：上次完全备份后发生变化的数据
+#### 冷备份
+又叫静态备份，关闭数据库，将文件完全复制下来。
+- 优点：简单、快速，低度维护，高度安全
+- 缺点：单独使用时，只能提供到某一时间点上的恢复；备份过程中数据库不能做其他工作；速度慢；不能按表或按用户恢复
+
+#### 热备份
+又叫动态备份，在数据库正常运行的情况下使用备份软件将数据库文件备份出来。
+- 优点：可在表空间或数据库文件级备份，备份时间短；备份时数据库仍可用；速度快
+- 缺点：不能出错，否则后果严重；困难于维护。
+### 分布式数据库
+分布式关系数据库，基本没有落地。用于解决海量数据。<br>
+- 定义：由一组数据组成，这组数据分布在网络的不同节点上，可以执行局部应用，也可以经过网络执行全局应用。
+![](images/Pastedimage20260812194106.png)
+
+- 数据分片：水平分片、垂直分片、导出分片、混合分片。
+- 布透明性：分片透明性、位置透明性、局部数据模型透明性。
+
+### 数据仓库
+数据仓库是一个面向主题的、集成的、相对稳定的、反映历史变化的数据集合，用于支持管理决策。
+- 联机事务处理（OLTP）与联机分析处理（OLAP）比较
+![](images/Pastedimage20260812195040.png)
+
+#### 数据仓库分类
+企业仓库、数据集市、虚拟仓库
+#### 设计方法
+自顶向下、自底向上、混合。
+
 ## 历年试题解析-选择
+![](images/Pastedimage20260812195535.png)
+
+![](images/Pastedimage20260812195921.png)
+
+![](images/Pastedimage20260812200043.png)
+
+
 
 ## 历年试题解析-案例
