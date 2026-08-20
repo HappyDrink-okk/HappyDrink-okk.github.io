@@ -502,6 +502,84 @@ for key, data in table. scan(columns=[' column family:column') :
 
 ![](images/Pastedimage20260812200043.png)
 
+![](images/Pastedimage20260817190035.png)
+上述第1小问选D，第2小问选A
 
+![](images/Pastedimage20260817190716.png)
+```
+注：视图只能查询，不能更新
+```
+
+![](images/Pastedimage20260817191029.png)
+
+![](images/Pastedimage20260817191106.png)
+
+![](images/Pastedimage20260817191309.png)
+
+![](images/Pastedimage20260817191353.png)
+
+![](images/Pastedimage20260817191625.png)
+
+![](images/Pastedimage20260817192551.png)
+补充：事务的四个特征：ACID
+
+
+![](images/Pastedimage20260817192636.png)
+这种题目画图解很清晰
+
+![](images/Pastedimage20260817192843.png)
+
+![](images/Pastedimage20260817193159.png)
+选C
+```
+死锁产生的四个必要条件是：
+
+1. 互斥条件
+2. 请求和保持条件
+3. 不可抢占条件
+4. 循环等待条件
+
+预防死锁的思路就是：主动破坏其中至少一个必要条件。但这里有一个特殊点：互斥条件通常无法人为破坏，因为很多资源本身就具有天然的独占性，比如打印机，同一时刻不能让多个进程同时使用。
+
+所以实际的死锁预防措施通常是：
+
+- A 破坏循环等待条件：可以，例如给资源统一编号，要求按固定顺序申请资源。
+- B 破坏不可抢占条件：可以，例如进程申请不到新资源时，释放已经占有的资源。
+- D 破坏请求和保持条件：可以，例如要求进程一次性申请全部所需资源。
+- C 破坏互斥条件：通常不能作为一般的死锁预防措施，因为某些资源必须互斥访问。
+```
+
+![](images/Pastedimage20260817193344.png)
+关于完整性的[章节](####完整性约束)
+
+![](images/Pastedimage20260817193650.png)
+```
+自然连接：去重后合并，去除右边关系的重复列
+```
+
+27题及之后的是回忆版真题
+![](images/Pastedimage20260817193748.png)
+
+![](images/Pastedimage20260817194010.png)
+
+![](images/Pastedimage20260817194111.png)
+
+![](images/Pastedimage20260817194445.png)
+36题应当放在第8章，此处先不展开
 
 ## 历年试题解析-案例
+
+![](images/Pastedimage20260817194635.png)
+第1问答案：
+```
+（1）f
+（2）g
+（3）h
+（4）d
+（5）b
+（6）e
+```
+![](images/Pastedimage20260817195020.png)
+
+![](images/Pastedimage20260817200205.png)
+
