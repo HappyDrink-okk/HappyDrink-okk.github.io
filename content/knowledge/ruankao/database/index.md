@@ -583,3 +583,21 @@ for key, data in table. scan(columns=[' column family:column') :
 
 ![](images/Pastedimage20260817200205.png)
 
+![](images/Pastedimage20260823153046.png)
+
+![](images/Pastedimage20260823153102.png)
+
+![](images/Pastedimage20260823153534.png)
+【问题3】（2）超纲了
+
+![](images/Pastedimage20260823153917.png)
+
+![](images/Pastedimage20260823154305.png)
+（1）逻辑设计阶段包含哪些任务？---属于是默写题
+![](images/Pastedimage20260823154702.png)
+【问题2】超类实体 --- 默写题
+【问题3】派生属性 --- 默写题
+![](images/Pastedimage20260823155122.png)
+
+
+
