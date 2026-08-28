@@ -33,7 +33,7 @@ ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowToc = true
-TocOpen = false
+TocOpen = true
 
 [params.homeInfoParams]
 Title = "欢迎来到我的技术博客"
@@ -79,3 +79,9 @@ weight = 40
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
