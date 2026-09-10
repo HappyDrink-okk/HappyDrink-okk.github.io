@@ -1,0 +1,105 @@
+{{- define "title" -}}
+    {{ .Title }} - {{ .Site.Title }}
+{{- end -}}
+
+{{- define "content" -}}
+
+<div class="page archive">
+
+    <h2 class="single-title">
+        {{ .Title }}
+    </h2>
+
+    {{- with .Content }}
+    <div class="content">
+        {{ . }}
+    </div>
+    {{- end }}
+
+
+    {{- /* ============================= */ -}}
+    {{- /* 下一级分类 */ -}}
+    {{- /* ============================= */ -}}
+
+    {{- if .Sections }}
+
+        <h3 class="archive-title">
+            子分类
+        </h3>
+
+        {{- range .Sections.ByWeight }}
+
+        <article class="archive-item">
+
+            <a
+                href="{{ .RelPermalink }}"
+                class="archive-item-link"
+            >
+                {{ .Title | emojify }}
+            </a>
+
+            {{- with first 1 .RegularPagesRecursive.ByLastmod.Reverse }}
+                {{- with index . 0 }}
+
+                <span class="archive-item-date">
+                    {{ .Lastmod.Format "01-02" }}
+                </span>
+
+                {{- end }}
+            {{- end }}
+
+        </article>
+
+        {{- end }}
+
+    {{- end }}
+
+
+    {{- /* 当前分类及所有子分类中的文章 */ -}}
+    {{- /* 按文章发布日期年份分组 */ -}}
+    {{- /* ============================= */ -}}
+
+    {{- $pages := .RegularPagesRecursive.ByDate.Reverse }}
+
+    {{- if $pages }}
+
+        <h3 class="archive-title">
+            文章
+        </h3>
+
+        {{- $groups := $pages.GroupByDate "2006" }}
+
+        {{- range $groups }}
+
+            {{- /* 年份 */ -}}
+            <h3 class="group-title">
+                {{ .Key }}
+            </h3>
+
+            {{- /* 这一年份的文章 */ -}}
+            {{- range .Pages }}
+
+                <article class="archive-item">
+
+                    <a
+                        href="{{ .RelPermalink }}"
+                        class="archive-item-link"
+                    >
+                        {{ .Title | emojify }}
+                    </a>
+
+                    <span class="archive-item-date">
+                        {{ .Date.Format "01-02" }}
+                    </span>
+
+                </article>
+
+            {{- end }}
+
+        {{- end }}
+
+    {{- end }}
+
+</div>
+
+{{- end -}}
