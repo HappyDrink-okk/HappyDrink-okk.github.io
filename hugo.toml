@@ -1,9 +1,19 @@
 baseURL = "https://happydrink-okk.github.io/"
-locale = "zh-cn"
+
 title = "猫咪老师的技术博客"
-theme = ["PaperMod"]
+
+theme = "LoveIt"
+
+defaultContentLanguage = "zh-cn"
+locale = "zh-CN"
+hasCJKLanguage = true
+languageName = "简体中文"
 
 enableRobotsTXT = true
+enableEmoji = true
+# 开启git信息，用于展示文章的修改时间
+enableGitInfo = true
+
 buildDrafts = false
 buildFuture = false
 buildExpired = false
@@ -11,41 +21,28 @@ buildExpired = false
 [pagination]
 pagerSize = 10
 
-[minify]
-disableXML = true
-minifyOutput = true
+# 按照以下规则设定文章的修改时间：
+# git 最后修改时间 -> 文章的 lastmod -> 文章的 modified -> 文章首次发布时间 date
+[frontmatter]
+lastmod = [":git", "lastmod", "modified", "date"]
 
-[params]
-env = "production"
-title = "猫咪老师的技术博客"
-description = "记录ROS 2、Gazebo、Linux、Docker和机器人开发"
-author = "猫咪老师"
-# 开启评论
-comments = true
-mainSections = ["posts", "knowledge"]
+# ============================================================
+# 让 knowledge/ 下的普通文章使用 LoveIt 的 posts 类型
+# ============================================================
 
-defaultTheme = "auto"
-disableThemeToggle = false
+[[cascade]]
+type = "posts"
 
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
-ShowBreadCrumbs = true
-ShowCodeCopyButtons = true
-ShowToc = true
-TocOpen = true
+[cascade.target]
+kind = "page"
+path = "/knowledge/**"
 
-[params.homeInfoParams]
-Title = "欢迎来到我的技术博客"
-Content = "记录ROS 2、Gazebo、Linux、Docker以及机器人开发中的学习和实践。"
 
-[[params.socialIcons]]
-name = "github"
-url = "https://github.com/HappyDrink-okk"
+# ============================================================
+# 顶部菜单
+# ============================================================
 
-[caches]
-  [caches.images]
-  dir = ":cacheDir/images"
+[menu]
 
 [[menu.main]]
 identifier = "posts"
@@ -54,15 +51,9 @@ url = "/"
 weight = 10
 
 [[menu.main]]
-identifier = "categories"
+identifier = "knowledge"
 name = "分类"
 url = "/knowledge/"
-weight = 25
-
-[[menu.main]]
-identifier = "archives"
-name = "归档"
-url = "/archives/"
 weight = 20
 
 [[menu.main]]
@@ -71,17 +62,232 @@ name = "标签"
 url = "/tags/"
 weight = 30
 
-[[menu.main]]
-identifier = "search"
-name = "搜索"
-url = "/search/"
-weight = 40
 
-[outputs]
-home = ["HTML", "RSS", "JSON"]
+# ============================================================
+# LoveIt 全局配置
+# ============================================================
+
+[params]
+
+defaultTheme = "auto"
+
+dateFormat = "2006-01-02"
+
+title = "猫咪老师的技术博客"
+
+description = "记录 ROS 2、Gazebo、Linux、Docker 和机器人开发"
+
+
+# ============================================================
+# 作者
+# ============================================================
+
+[params.author]
+
+name = "猫咪老师"
+
+
+# ============================================================
+# 顶部导航栏
+# ============================================================
+
+[params.header]
+
+desktopMode = "fixed"
+mobileMode = "auto"
+
+[params.header.title]
+
+logo = ""
+name = "猫咪老师的技术博客"
+pre = ""
+post = ""
+typeit = false
+
+
+# ============================================================
+# 首页
+# ============================================================
+
+[params.home]
+
+[params.home.profile]
+
+enable = true
+
+# 后续可以添加头像
+avatarURL = ""
+
+title = "猫咪老师的技术博客"
+
+subtitle = "记录 ROS 2、Gazebo、Linux、Docker 以及机器人开发中的学习和实践"
+
+typeit = true
+
+social = true
+
+
+[params.home.posts]
+
+enable = true
+paginate = 10
+
+
+# ============================================================
+# 社交链接
+# ============================================================
+
+[params.social]
+
+GitHub = "HappyDrink-okk"
+
+
+# ============================================================
+# 搜索
+# ============================================================
+
+[params.search]
+
+enable = true
+type = "lunr"
+
+contentLength = 4000
+placeholder = "搜索文章..."
+maxResultLength = 10
+snippetLength = 50
+highlightTag = "em"
+absoluteURL = false
+
+
+# ============================================================
+# 文章页面
+# ============================================================
+
+[params.page]
+
+hiddenFromHomePage = false
+hiddenFromSearch = false
+
+# 点击图片放大
+lightgallery = true
+
+# 不显示 Markdown 源文件链接
+linkToMarkdown = false
+
+rssFullText = false
+
+
+# ============================================================
+# 左侧文章目录
+# ============================================================
+
+[params.page.toc]
+
+enable = true
+
+# 不保留正文上方的静态目录
+keepStatic = false
+
+# 左侧目录自动折叠
+auto = true
+
+
+# ============================================================
+# 数学公式
+# ============================================================
+
+[params.page.math]
+
+enable = true
+copyTex = true
+mhchem = true
+
+
+# ============================================================
+# 代码块
+# ============================================================
+
+[params.page.code]
+
+copy = true
+
+# 超过50行时折叠
+maxShownLines = 50
+
+
+# ============================================================
+# 评论
+# ============================================================
+
+[params.page.comment]
+
+enable = true
+
+
+# giscus
+[params.page.comment.giscus]
+
+enable = true
+
+repo = "HappyDrink-okk/HappyDrink-okk.github.io"
+
+# 从你现在的 giscus 配置中复制
+repoId = "你的 repo-id"
+
+category = "Announcements"
+
+# 从你现在的 giscus 配置中复制
+categoryId = "你的 category-id"
+
+lang = "zh-CN"
+
+mapping = "pathname"
+
+reactionsEnabled = "1"
+
+emitMetadata = "0"
+
+inputPosition = "bottom"
+
+lazyLoading = true
+
+lightTheme = "light"
+
+darkTheme = "dark"
+
+
+# ============================================================
+# Markdown
+# ============================================================
 
 [markup]
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 4
-    ordered = false
+
+[markup.highlight]
+
+codeFences = true
+guessSyntax = true
+
+# LoveIt要求关闭classless模式
+noClasses = false
+
+
+[markup.tableOfContents]
+
+startLevel = 2
+endLevel = 4
+
+
+[markup.goldmark]
+
+[markup.goldmark.renderer]
+
+unsafe = true
+
+
+# ============================================================
+# 搜索输出
+# ============================================================
+
+[outputs]
+
+home = ["HTML", "RSS", "JSON"]
