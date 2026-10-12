@@ -324,9 +324,27 @@ DSSA的主要活动包括：领域分析、领域设计、领域实现，是一�
 DSSA的建立主要分为5个阶段，每个阶段可以进一步划分为一些步骤或子阶段，本过程是并发的、递归的、反复的。或者可以说，它是螺旋模型。
 
 ### DSSA应用举例
-
+多元产业后市场业务通用流程：
+![459](images/Pastedimage20261012185432.png)
+根据上述背景，总结出多元产业后市场业务主要功能：
+![514](images/Pastedimage20261012185534.png)
+多元产业后市场业务水平域设计：
+![531](images/Pastedimage20261012193400.png)
 
 ## 历年试题解析-上午
 
+![](images/Pastedimage20261012194215.png)
+
+![](images/Pastedimage20261012194754.png)
+
+![](images/Pastedimage20261012194850.png)
+
+![](images/Pastedimage20261012195214.png)
+
+![](images/Pastedimage20261012195401.png)
+
+![](images/Pastedimage20261012195547.png)
+
+1B2 AA 3BB  4BD 5BD 6B 7C 8A 9CB 10A 11AB 12DA 13ABBA 14DB 15DCA 16AAC 17A 18BC 19BA 20B
 ## 历年试题解析-案例
 
